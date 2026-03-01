@@ -1,4 +1,4 @@
-import { Home, Briefcase, BookOpen, User, Lightbulb } from "lucide-react";
+import { Home, Briefcase, User } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -8,7 +8,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "portfolio", "inspiration", "blog", "skills"];
+      const sections = ["home", "portfolio", "skills"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -35,8 +35,6 @@ const Sidebar = () => {
   const menuItems = [
     { id: "home", label: "Home", icon: Home },
     { id: "portfolio", label: "Projects", icon: Briefcase },
-    { id: "inspiration", label: "Inspiration", icon: Lightbulb },
-    { id: "blog", label: "Writings", icon: BookOpen },
     { id: "skills", label: "Skills", icon: User },
   ];
 
