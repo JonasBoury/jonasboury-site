@@ -13,6 +13,7 @@ import {
   Phone,
   CheckCircle2,
   Home,
+  Linkedin,
 } from "lucide-react";
 import { useState } from "react";
 import {
@@ -271,6 +272,15 @@ const Huurder = () => {
             >
               <Mail className="h-4 w-4" />
               jonas.boury@gmail.com
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jonasboury/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-foreground transition-colors"
+            >
+              <Linkedin className="h-4 w-4" />
+              linkedin.com/in/jonasboury
             </a>
           </div>
         </section>
