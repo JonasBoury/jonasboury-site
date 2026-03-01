@@ -218,7 +218,18 @@ const Huurder = () => {
         </Section>
 
 
-        {/* Mijn vorige woning */}
+        {/* Levensstijl */}
+        <Section icon={User} title="Levensstijl">
+          <p className="text-muted-foreground">
+            Buiten het werk ben ik graag actief bezig: klimmen en boulderen,
+            kitesurfen aan de kust, en dagelijkse wandelingen of loopsessies
+            met Lowie. Doordeweeks is het rustig: thuiswerk, videocalls, en af
+            en toe een bezoek aan het Wintercircus in Gent. 's Avonds geniet
+            ik van een rustige avond op de bank, een goed gesprek of een serie.
+          </p>
+        </Section>
+
+        {/* Mijn vorige woning */
         <Section icon={Home} title="Mijn vorige woning">
           <p className="text-muted-foreground mb-6">
             Een blik op mijn vorige woning in Antwerpen, die ik zelf heb
