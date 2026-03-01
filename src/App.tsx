@@ -17,6 +17,7 @@ import { Emergency } from "./pages/trip/Emergency";
 import { ExpeditionGuide } from "./pages/trip/ExpeditionGuide";
 import { Itinerary } from "./pages/trip/Itinerary";
 import Tracking from "./pages/trip/Tracking";
+import Huurder from "./pages/Huurder";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/huurder" element={<Huurder />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/trip/toerski-moelleux-club" element={<TripLayout />}>
             <Route index element={<Navigate to="itinerary" replace />} />
