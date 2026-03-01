@@ -4,26 +4,25 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const skills = {
   expertise: [
-    { name: "Product Management", description: "I combine business, tech, and design to discover products that are valuable, feasible, and usable." },
-    { name: "Product Strategy", description: "I help teams create and maintain a clear and defined product and go to market strategy." },
-    { name: "UX Design", description: "Creating intuitive and user-centered digital experiences" },
-    { name: "Project Management", description: "Leading cross-functional teams to deliver successful projects" },
-    { name: "Team Management", description: "Building and guiding high-performing teams" },
-    { name: "Time Management", description: "Optimizing workflows and prioritizing effectively" },
+    { name: "AI & LLM Engineering", description: "Building AI agents, RAG systems, and LLM-powered tools that solve real business problems." },
+    { name: "Product Management", description: "Combining business, tech, and design to discover products that are valuable, feasible, and usable." },
+    { name: "Product Strategy", description: "Creating and executing clear product and go-to-market strategies." },
+    { name: "UX Design", description: "Creating intuitive and user-centered digital experiences." },
+    { name: "Team Management", description: "Building and guiding high-performing technical teams." },
   ],
   domains: [
-    { name: "Energy Sector", description: "7 years of experience in fast-moving and innovative energy projects" },
-    { name: "Fintech", description: "Digital solutions for financial and monetary systems" },
-    { name: "Community Building", description: "Creating and growing highly engaged online audiences" },
-    { name: "Blockchain Technology", description: "Leveraging blockchain when relevant for projects" },
-    { name: "Sustainable Economy", description: "Expertise in ecology and sustainable development" },
+    { name: "AI & Automation", description: "Custom AI software replacing SaaS subscriptions, agent architectures, workflow automation." },
+    { name: "Fintech & Payments", description: "Payment infrastructure, community currencies, Web3 financial systems." },
+    { name: "Energy Sector", description: "6 years of experience in renewable energy trading and platform development." },
+    { name: "Community Building", description: "Creating and growing engaged communities around products and missions." },
+    { name: "Blockchain & Web3", description: "Smart contracts, onchain payments, wallet infrastructure." },
   ],
   technical: [
-    { name: "Low Code", description: "Creating digital products without code in a fraction of the time and cost" },
-    { name: "MVPs", description: "Building lean, highly effective MVP experiments to validate assumptions" },
-    { name: "CRM Implementations", description: "Setting up and optimizing customer relationship management systems" },
-    { name: "B2B Sales", description: "Strategic sales approaches for business-to-business products" },
-    { name: "Critical Thinking", description: "Analytical problem-solving and decision-making" },
+    { name: "Full-Stack Development", description: "React, TypeScript, Next.js, Node.js, Flutter, Tailwind." },
+    { name: "AI/ML Stack", description: "LLMs, RAG, vector databases, agent frameworks, prompt engineering." },
+    { name: "Cloud & DevOps", description: "Supabase, Cloudflare, Vercel, GitHub Actions, Docker." },
+    { name: "MVPs & Prototyping", description: "Building lean, effective experiments to validate assumptions fast." },
+    { name: "Data & Analytics", description: "SQL, data pipelines, business intelligence, metrics-driven decisions." },
   ]
 };
 

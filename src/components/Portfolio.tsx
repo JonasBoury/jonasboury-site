@@ -6,48 +6,55 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const currentProjects = [
   {
     title: "Citizen Pay",
-    description: "Complete payment infrastructure accepting any currency seamlessly - traditional, stablecoins, or custom tokens. Hybrid Web2 + Web3 payment platform with instant transactions, full compliance, and 100% onchain capabilities.",
+    description: "Closed-loop payment infrastructure with 0% transaction fees. Hybrid Web2 + Web3 platform enabling communities, cities, and organizations to run their own payment systems with full sovereignty.",
     tags: ["Payments", "Web3", "Fintech"],
     link: "https://citizenpay.xyz/",
-    period: "Present"
+    period: "Aug 2025 - Present"
   },
   {
-    title: "Spark Collective",
-    description: "Digital platform for the Spark Collective community, fostering collaboration and connection within the ecosystem.",
-    tags: ["Community", "Platform", "Digital Tools"],
+    title: "Spark AI",
+    description: "We don't advise, we build. Custom AI software that replaces expensive SaaS subscriptions. Building AI agents and tools that actually work for businesses.",
+    tags: ["AI", "Software", "Consulting"],
     link: "https://sparkcollective.be/",
-    period: "Present"
+    period: "2024 - Present"
   },
   {
-    title: "Citizen Wallet",
-    description: "Citizen Wallet is an open source web3 mobile wallet to support community currency projects. Instead of focusing on trading and investing it focuses on real world transactions and easy onboarding of new users into Web3.",
-    tags: ["Web3", "Fintech", "Community Currencies"],
-    link: "https://citizenwallet.xyz/",
-    period: "Sept 2023 - Present"
-  },
-  {
-    title: "BE.IMPACT",
-    description: "Building the community platform for a non-profit network organization that supports sustainable and social impact companies. Responsible for the digital platform and tools to manage and grow the ecosystem.",
-    tags: ["Product Management", "Platform Development", "Impact"],
-    link: "https://beimpact.org/",
-    period: "April 2023 - Present"
+    title: "Yuso",
+    description: "Head of AI at an energy company integrating renewable energy into current markets. Leading AI strategy and implementation across the organization.",
+    tags: ["Energy", "AI", "Strategy"],
+    link: "https://yuso.com",
+    period: "2024 - Present"
   }
 ];
 
 const pastProjects = [
   {
-    title: "Yuso",
-    description: "Energy startup integrating renewable energy into current energy markets. Started as renewable energy trader and portfolio manager, later became responsible for developing all web applications and coordinating the IT team.",
+    title: "Citizen Wallet",
+    description: "Open source Web3 mobile wallet for community currency projects. Focused on real-world transactions and frictionless onboarding of new users into Web3. Launched community currencies for cities and networks across Europe.",
+    tags: ["Web3", "Fintech", "Community Currencies"],
+    link: "https://citizenwallet.xyz/",
+    period: "Sept 2023 - Nov 2025"
+  },
+  {
+    title: "BE.IMPACT",
+    description: "Built the community platform for a non-profit network organization supporting sustainable and social impact companies. Responsible for the digital platform and tools to manage and grow the ecosystem.",
+    tags: ["Product Management", "Platform Development", "Impact"],
+    link: "https://beimpact.org/",
+    period: "April 2023 - Dec 2025"
+  },
+  {
+    title: "Yuso (Product)",
+    description: "First employee at an energy startup. Started as renewable energy trader and portfolio manager, later became responsible for developing all web applications and coordinating the IT team.",
     tags: ["Energy", "B2B", "Platform Development"],
     link: "https://yuso.com",
-    period: "November 2015 - October 2021"
+    period: "Nov 2015 - Oct 2021"
   },
   {
     title: "BloomUp",
-    description: "Startup providing instant access to online mental health support. Contributed to the development of the MVP during the pandemic. BloomUp is growing into a successful social enterprise.",
+    description: "Startup providing instant access to online mental health support. Contributed to the development of the MVP during the pandemic. BloomUp grew into a successful social enterprise.",
     tags: ["HealthTech", "MVP", "Social Impact"],
     link: "https://www.bloomup.org/",
-    period: "April 2020 - January 2021"
+    period: "April 2020 - Jan 2021"
   }
 ];
 

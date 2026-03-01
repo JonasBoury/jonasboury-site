@@ -25,7 +25,7 @@ export const resumeData = {
     {
       title: "Product Manager",
       company: "Citizen Wallet",
-      period: "Sept 2023 - Present",
+      period: "Sept 2023 - Nov 2025",
       description: "Leading product development for an open-source Web3 mobile wallet designed for community currencies. Focused on real-world transactions and frictionless onboarding—enabling users with zero crypto experience to transact within minutes. Successfully launched community currencies for cities and networks, prioritizing user success over technical complexity.",
       shortDescription: "Open source web3 mobile wallet for community currency projects. Focus on real-world transactions and onboarding new users into Web3.",
       skills: ["User Onboarding", "Community Engagement", "Documentation", "User Support"],

@@ -42,20 +42,17 @@ const Hero = () => {
                 Jonas Boury
               </h1>
               <p className="text-base md:text-lg text-muted-foreground mt-1">
-                Building digital experiences that matter
+                Builder, product thinker, AI pragmatist
               </p>
             </div>
           </div>
           
           <p className="text-sm md:text-base text-foreground leading-relaxed">
-            I have an engineering background and a passion for digital product development. 
-            I have 7 years of experience in fast-moving and innovative projects in the 
-            energy sector and developing B2B digital platforms.
+            Engineering background with 10+ years building digital products, from energy trading platforms to Web3 wallets to AI-powered software. Currently focused on AI and fintech.
           </p>
 
           <p className="text-sm md:text-base text-foreground leading-relaxed">
-            I want to dedicate my skills to projects that can make a sustainable impact with 
-            a strong focus on financial and monetary systems.
+            I build AI software that replaces expensive SaaS subscriptions, and payment infrastructure that gives communities financial sovereignty.
           </p>
           
           <div className="relative bg-gradient-to-br from-primary/5 to-primary/10 rounded-[20px] p-6 border border-primary/20">
