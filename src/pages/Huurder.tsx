@@ -229,7 +229,7 @@ const Huurder = () => {
           </p>
         </Section>
 
-        {/* Mijn vorige woning */
+        {/* Mijn vorige woning */}
         <Section icon={Home} title="Mijn vorige woning">
           <p className="text-muted-foreground mb-6">
             Een blik op mijn vorige woning in Antwerpen, die ik zelf heb
