@@ -17,13 +17,6 @@ const currentProjects = [
     tags: ["AI", "Software", "Consulting"],
     link: "https://sparkcollective.be/",
     period: "2024 - Present"
-  },
-  {
-    title: "Yuso",
-    description: "Head of AI at an energy company integrating renewable energy into current markets. Leading AI strategy and implementation across the organization.",
-    tags: ["Energy", "AI", "Strategy"],
-    link: "https://yuso.com",
-    period: "2024 - Present"
   }
 ];
 
