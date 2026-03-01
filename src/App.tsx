@@ -18,6 +18,7 @@ import { ExpeditionGuide } from "./pages/trip/ExpeditionGuide";
 import { Itinerary } from "./pages/trip/Itinerary";
 import Tracking from "./pages/trip/Tracking";
 import Huurder from "./pages/Huurder";
+import HuurderDrongen from "./pages/HuurderDrongen";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/huurder" element={<Huurder />} />
+          <Route path="/huurder/drongen" element={<HuurderDrongen />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/trip/toerski-moelleux-club" element={<TripLayout />}>
             <Route index element={<Navigate to="itinerary" replace />} />
