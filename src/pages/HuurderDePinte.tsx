@@ -12,16 +12,16 @@ import {
   Phone,
   CheckCircle2,
   Home,
+  User,
   Building2,
-  TreePine,
 } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN || ""; //
+const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN || "";
 
-const PROPERTY: [number, number] = [3.66, 51.065];
+const PROPERTY: [number, number] = [3.6498, 51.0005];
 
 interface Destination {
   id: string;
@@ -70,40 +70,30 @@ const destinations: Destination[] = [
   {
     id: "brussel",
     name: "Brussel Centraal",
-    label: "Via Drongen station",
+    label: "Via De Pinte station",
     coords: [4.3571, 50.8455],
     mode: "driving",
     modeLabel: "Trein",
     color: "#f59e0b",
     icon: Train,
-    note: "~45 min per trein",
+    note: "~50 min per trein",
     isStraightLine: true,
   },
   {
     id: "waregem",
     name: "Waregem",
-    label: "Via E40",
-    coords: [3.4275, 50.8850],
+    label: "Via E17",
+    coords: [3.4275, 50.885],
     mode: "driving",
     modeLabel: "Auto",
     color: "#ef4444",
     icon: Car,
   },
   {
-    id: "oostduinkerke",
-    name: "Oostduinkerke",
-    label: "Appartement aan zee",
-    coords: [2.6625, 51.1225],
-    mode: "driving",
-    modeLabel: "Auto",
-    color: "#0ea5e9",
-    icon: Car,
-  },
-  {
-    id: "leie",
-    name: "Leiestreek",
-    label: "Dagelijkse wandeling met Lowie",
-    coords: [3.645, 51.060],
+    id: "station",
+    name: "De Pinte Station",
+    label: "Wandelafstand",
+    coords: [3.6505, 50.9955],
     mode: "walking",
     modeLabel: "Te voet",
     color: "#06b6d4",
@@ -166,7 +156,7 @@ const ModeIcon = ({ dest }: { dest: Destination }) => {
   return <Car className="h-4 w-4" />;
 };
 
-const HuurderDrongen = () => {
+const HuurderDePinte = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const [routes, setRoutes] = useState<Record<string, RouteData>>({});
@@ -176,14 +166,14 @@ const HuurderDrongen = () => {
   const fetchRoute = useCallback(
     async (dest: Destination): Promise<RouteData | null> => {
       if (dest.isStraightLine) {
-        const drongenStation: [number, number] = [3.6575, 51.0545];
+        const dePinteStation: [number, number] = [3.6505, 50.9955];
         return {
           geometry: {
             type: "LineString",
-            coordinates: [drongenStation, dest.coords],
+            coordinates: [dePinteStation, dest.coords],
           },
-          distance: 55000,
-          duration: 2700,
+          distance: 60000,
+          duration: 3000,
         };
       }
       try {
@@ -214,8 +204,8 @@ const HuurderDrongen = () => {
     const m = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/light-v11",
-      center: [3.68, 51.05],
-      zoom: 11.5,
+      center: [3.68, 51.0],
+      zoom: 11,
     });
 
     m.addControl(new mapboxgl.NavigationControl(), "top-right");
@@ -223,15 +213,18 @@ const HuurderDrongen = () => {
     m.on("load", () => {
       setMapLoaded(true);
 
-      // Property marker
       const homeEl = document.createElement("div");
-      homeEl.innerHTML = '<div style="background:#1d4ed8;color:white;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.3);border:3px solid white;font-size:18px;">&#127968;</div>';
+      homeEl.innerHTML =
+        '<div style="background:#1d4ed8;color:white;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.3);border:3px solid white;font-size:18px;">&#127968;</div>';
       new mapboxgl.Marker({ element: homeEl })
         .setLngLat(PROPERTY)
-        .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML("<strong>Woning Drongen</strong>"))
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }).setHTML(
+            "<strong>Eikelstraat 24, De Pinte</strong>"
+          )
+        )
         .addTo(m);
 
-      // Destination markers
       destinations.forEach((dest) => {
         const el = document.createElement("div");
         el.innerHTML = `<div style="background:${dest.color};color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.25);border:2px solid white;font-size:12px;font-weight:bold;cursor:pointer;">${dest.name.charAt(0)}</div>`;
@@ -258,7 +251,6 @@ const HuurderDrongen = () => {
     };
   }, []);
 
-  // Fetch all routes once map is loaded
   useEffect(() => {
     if (!mapLoaded) return;
     const fetchAll = async () => {
@@ -272,7 +264,6 @@ const HuurderDrongen = () => {
     fetchAll();
   }, [mapLoaded, fetchRoute]);
 
-  // Draw routes on map
   useEffect(() => {
     const m = map.current;
     if (!m || !mapLoaded || Object.keys(routes).length === 0) return;
@@ -303,7 +294,8 @@ const HuurderDrongen = () => {
         const paintProps: Record<string, unknown> = {
           "line-color": dest.color,
           "line-width": activeId === null || activeId === dest.id ? 4 : 2,
-          "line-opacity": activeId === null || activeId === dest.id ? 0.85 : 0.25,
+          "line-opacity":
+            activeId === null || activeId === dest.id ? 0.85 : 0.25,
         };
         if (dest.isStraightLine) {
           paintProps["line-dasharray"] = [2, 2];
@@ -323,7 +315,6 @@ const HuurderDrongen = () => {
     });
   }, [routes, mapLoaded, activeId]);
 
-  // Update route opacity on active change
   useEffect(() => {
     const m = map.current;
     if (!m || !mapLoaded) return;
@@ -345,7 +336,7 @@ const HuurderDrongen = () => {
         m.fitBounds(bounds, { padding: 80, duration: 800 });
       }
     } else {
-      m.flyTo({ center: [3.68, 51.05], zoom: 11.5, duration: 800 });
+      m.flyTo({ center: [3.68, 51.0], zoom: 11, duration: 800 });
     }
   }, [activeId, mapLoaded]);
 
@@ -365,10 +356,10 @@ const HuurderDrongen = () => {
       <div className="mx-auto max-w-5xl px-6 md:px-12 pt-16 md:pt-24 pb-8">
         <header className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-            Kandidatuur: Woning Drongen
+            Kandidatuur: Eikelstraat 24, De Pinte
           </h1>
           <p className="text-muted-foreground">
-            Nabij station Drongen, Gent
+            4 slaapkamers, 185m&sup2;, garage, tuin met terrassen
           </p>
         </header>
         <Separator className="mb-8" />
@@ -377,10 +368,11 @@ const HuurderDrongen = () => {
       {/* Map + Sidebar */}
       <div className="mx-auto max-w-6xl px-4 md:px-8 mb-12">
         <div className="flex flex-col lg:flex-row gap-0 rounded-xl overflow-hidden border border-border shadow-sm">
-          {/* Map */}
-          <div className="w-full lg:flex-1 h-[400px] lg:h-[520px]" ref={mapContainer} />
+          <div
+            className="w-full lg:flex-1 h-[400px] lg:h-[520px]"
+            ref={mapContainer}
+          />
 
-          {/* Sidebar */}
           <div className="w-full lg:w-80 bg-card border-t lg:border-t-0 lg:border-l border-border p-4 overflow-y-auto max-h-[520px]">
             <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
               Bestemmingen
@@ -445,45 +437,46 @@ const HuurderDrongen = () => {
 
       {/* Content sections */}
       <div className="mx-auto max-w-3xl px-6 md:px-12 pb-16">
-        <Section icon={MapPin} title="Waarom Drongen ideaal is">
+        <Section icon={MapPin} title="Waarom De Pinte">
+          <BulletList
+            items={[
+              "Rustige, groene gemeente met dorpsgevoel",
+              "Doodlopende straat: ideaal voor rust en privacy",
+              "Nabij station De Pinte: vlotte verbinding naar Gent en Brussel",
+              "Vlotte bereikbaarheid via E17/E40",
+            ]}
+          />
+        </Section>
+
+        <Section icon={Home} title="Over de woning">
+          <BulletList
+            items={[
+              "Praktische indeling met bureau op gelijkvloers, ideaal voor thuiswerk",
+              "4 slaapkamers geven flexibiliteit",
+              "Ruime woonkamer (36m\u00B2) met veel lichtinval door grote raampartijen",
+              "Volledig omheinde tuin met 2 aangelegde terrassen",
+              "Inpandige garage",
+            ]}
+          />
+        </Section>
+
+        <Section icon={User} title="Over mij">
           <div className="text-muted-foreground space-y-3">
             <p>
-              Drongen combineert het beste van twee werelden: de rust van het
-              platteland met directe toegang tot Gent centrum. Het station van
-              Drongen biedt een rechtstreekse verbinding naar Brussel in 45
-              minuten, en via de E40 is zowel de kust als Waregem snel
-              bereikbaar.
+              33 jaar, ingenieur en ondernemer. Ik zoek een thuis op middellange
+              termijn waar ik rustig kan wonen en werken.
             </p>
             <p>
-              Voor mijn dagelijks werk bij Citizen Pay fiets ik in 20 minuten
-              naar het Wintercircus. De Leiestreek biedt perfecte
-              wandelmogelijkheden met Lowie, en twee klimzalen liggen op
-              fietsafstand.
+              Bekijk mijn{" "}
+              <Link
+                to="/huurder"
+                className="text-primary hover:underline font-medium"
+              >
+                volledig huurderprofiel
+              </Link>{" "}
+              voor meer info.
             </p>
           </div>
-        </Section>
-
-        <Section icon={Home} title="De woning">
-          <BulletList
-            items={[
-              "Recente renovatie met kwaliteitsafwerking",
-              "Bureau op het gelijkvloers: ideaal voor thuiswerk",
-              "Tuin voor Lowie (omheining op eigen kosten)",
-              "Nabij station Drongen: vlot openbaar vervoer",
-              "Rustige buurt, perfecte uitvalsbasis",
-            ]}
-          />
-        </Section>
-
-        <Section icon={TreePine} title="Levensstijl in Drongen">
-          <BulletList
-            items={[
-              "Dagelijkse wandelingen langs de Leie met Lowie",
-              "Fietsen naar Wintercircus, Walden en Bleau",
-              "Weekends naar Oostduinkerke (appartement aan zee) of Waregem via E40",
-              "Rustige thuiswerker, gestructureerde werkstijl",
-            ]}
-          />
         </Section>
 
         <Separator className="my-10" />
@@ -525,4 +518,4 @@ const HuurderDrongen = () => {
   );
 };
 
-export default HuurderDrongen;
+export default HuurderDePinte;
