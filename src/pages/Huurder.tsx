@@ -15,7 +15,7 @@ import {
   Home,
   Linkedin,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -104,6 +104,10 @@ const PreviousHomeGallery = () => {
 };
 
 const Huurder = () => {
+  useEffect(() => {
+    document.title = "Jonas Boury - Huurdersprofiel";
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -147,7 +151,7 @@ const Huurder = () => {
               alleen, op middellange termijn mogelijk met partner.
             </p>
             <p>
-              Ik bouw aan een fintech startup (Citizen Pay) vanuit Gent en doe
+              Ik bouw aan een fintech startup vanuit Gent en doe
               daarnaast tech consulting. Ik werk voornamelijk vanuit huis: een
               rustige, gestructureerde werkstijl.
             </p>
@@ -158,7 +162,7 @@ const Huurder = () => {
         <Section icon={ShieldCheck} title="Waarom ik een goede huurder ben">
           <BulletList
             items={[
-              "Voldoende liquide middelen uit eerdere ondernemingen (BloomUp, Yuso)",
+              "Voldoende liquide middelen uit eerdere ondernemingen",
               "Geen ambitie om op korte termijn eigen vastgoed te kopen: bewuste keuze, stabiele huurder op middellange termijn",
               "Bereid 6 maanden huur vooruit te betalen",
               "Heel zorgvuldig persoon, respecteert kwaliteitsafwerking",
@@ -232,9 +236,9 @@ const Huurder = () => {
         {/* Mijn vorige woning */}
         <Section icon={Home} title="Mijn vorige woning">
           <p className="text-muted-foreground mb-6">
-            Een blik op mijn vorige woning in Antwerpen, die ik zelf heb
-            gerenoveerd en onderhouden. Foto's zeggen meer dan woorden over hoe
-            ik met een woning omga.
+            Mijn vorige woning in Antwerpen heb ik zelf gerenoveerd en 5 jaar
+            onderhouden. Foto's zeggen meer dan woorden over hoe ik met een
+            woning omga.
           </p>
           <PreviousHomeGallery />
         </Section>
