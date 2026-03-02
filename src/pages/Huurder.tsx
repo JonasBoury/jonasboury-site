@@ -20,7 +20,7 @@ import {
   Dialog,
   DialogContent,
 } from "@/components/ui/dialog";
-import profilePicture from "@/assets/profile-picture.png";
+import profilePicture from "@/assets/profile-photo.png";
 
 const Section = ({
   icon: Icon,
