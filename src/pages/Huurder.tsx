@@ -225,8 +225,7 @@ const Huurder = () => {
             Buiten het werk ben ik graag actief bezig: klimmen en boulderen,
             kitesurfen aan de kust, en dagelijkse wandelingen of loopsessies
             met Lowie. Doordeweeks is het rustig: thuiswerk, videocalls, en af
-            en toe een bezoek aan het Wintercircus in Gent. 's Avonds geniet
-            ik van een rustige avond op de bank, een goed gesprek of een serie.
+            en toe een bezoek aan het Wintercircus in Gent.
           </p>
         </Section>
 
