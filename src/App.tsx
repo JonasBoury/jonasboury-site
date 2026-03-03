@@ -35,6 +35,7 @@ const App = () => (
           <Route path="/huurder" element={<Huurder />} />
           <Route path="/huurder/drongen" element={<HuurderDrongen />} />
           <Route path="/huurder/de-pinte" element={<HuurderDePinte />} />
+          <Route path="/huurder-profiel" element={<HuurderDePinte />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/trip/toerski-moelleux-club" element={<TripLayout />}>
             <Route index element={<Navigate to="itinerary" replace />} />

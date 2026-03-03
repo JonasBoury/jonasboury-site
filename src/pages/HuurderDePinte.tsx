@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -102,9 +102,14 @@ const PreviousHomeGallery = () => {
 };
 
 const HuurderDePinte = () => {
+  const location = useLocation();
+  const isDePinte = location.pathname.includes("de-pinte");
+
   useEffect(() => {
-    document.title = "Jonas Boury - Huurdersprofiel De Pinte";
-  }, []);
+    document.title = isDePinte
+      ? "Jonas Boury - Huurdersprofiel De Pinte"
+      : "Jonas Boury - Huurdersprofiel";
+  }, [isDePinte]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -156,22 +161,24 @@ const HuurderDePinte = () => {
           </div>
         </Section>
 
-        {/* Waarom De Pinte */}
-        <Section icon={MapPin} title="Waarom De Pinte">
-          <div className="text-muted-foreground space-y-3">
-            <p>
-              De Pinte trekt me aan als woonplek: rustig, groen, en toch vlot
-              bereikbaar. De ligging nabij het station is ideaal voor mijn
-              consulting opdrachten in Brussel, en vanuit De Pinte sta ik snel
-              in Gent centrum voor werk en sociale activiteiten.
-            </p>
-            <p>
-              In de weekends ben ik graag aan zee, waar mijn ouders een
-              appartement hebben, en waar ik mij uitleef in het kitesurfen.
-              Vanuit De Pinte is ook de kust vlot bereikbaar.
-            </p>
-          </div>
-        </Section>
+        {/* Waarom De Pinte - only on /huurder/de-pinte */}
+        {isDePinte && (
+          <Section icon={MapPin} title="Waarom De Pinte">
+            <div className="text-muted-foreground space-y-3">
+              <p>
+                De Pinte trekt me aan als woonplek: rustig, groen, en toch vlot
+                bereikbaar. De ligging nabij het station is ideaal voor mijn
+                consulting opdrachten in Brussel, en vanuit De Pinte sta ik snel
+                in Gent centrum voor werk en sociale activiteiten.
+              </p>
+              <p>
+                In de weekends ben ik graag aan zee, waar mijn ouders een
+                appartement hebben, en waar ik mij uitleef in het kitesurfen.
+                Vanuit De Pinte is ook de kust vlot bereikbaar.
+              </p>
+            </div>
+          </Section>
+        )}
 
         {/* Waarom ik een goede huurder ben */}
         <Section icon={ShieldCheck} title="Waarom ik een goede huurder ben">
